@@ -1,3 +1,15 @@
+//   ____                _           _   _           
+//  / ___|_ __ ___  __ _| |_ ___  __| | | |__  _   _ 
+// | |   | '__/ _ \/ _` | __/ _ \/ _` | | '_ \| | | |
+// | |___| | |  __/ (_| | ||  __/ (_| | | |_) | |_| |
+//  \____|_|  \___|\__,_|\__\___|\__,_| |_.__/ \__, |
+//  ____  _ _         _____                    |___/ 
+// / ___|| (_)____   / ___ \                         
+// \___ \| | |_  /  / | _ \ \                        
+//  ___) | | |/ /  |  |   /  |                       
+// |____/|_|_/___|  \ |_|_\ /                        
+//                   \_____/                         
+
 #include <M5StickCPlus2.h>
 #include <vector>
 
@@ -47,8 +59,8 @@ void spawnApple() {
 void playIntroAnimation() {
     M5.Lcd.fillScreen(TFT_BLACK);
     
-    std::vector<Point> introSnake = {{0, GRID_HEIGHT / 2}}; // Начало слева
-    Point introApple = {GRID_WIDTH / 2, GRID_HEIGHT / 2}; // Яблоко в центре
+    std::vector<Point> introSnake = {{0, GRID_HEIGHT / 2}};
+    Point introApple = {GRID_WIDTH / 2, GRID_HEIGHT / 2};
     Direction introDir = RIGHT;
     
     while (introSnake[0].x < GRID_WIDTH) {
@@ -64,7 +76,7 @@ void playIntroAnimation() {
         if (introSnake[0].x != introApple.x || introSnake[0].y != introApple.y) {
             introSnake.pop_back();
         } else {
-            introApple = {GRID_WIDTH + 1, GRID_HEIGHT + 1}; // Убираем яблоко
+            introApple = {GRID_WIDTH + 1, GRID_HEIGHT + 1};
         }
         delay(100);
     }
